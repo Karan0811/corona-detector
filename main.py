@@ -5,6 +5,9 @@ app = Flask(__name__)
 file = open('model.pkl', 'rb')
 clf = pickle.load(file)
 file.close()
+@app.route('/about/')
+def about():
+    return render_template('about.html')
 
 
 @app.route('/', methods=["GET", "POST"])
